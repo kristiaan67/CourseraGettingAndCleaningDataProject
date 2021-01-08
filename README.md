@@ -46,13 +46,12 @@ a new data frame is created by melting the tidy data (all columns except for 'su
 The result is a data frame with 4 columns 'subject', 'activity', 'feature', 'value' with 'feature' being
 the name of the column in the tidy data set and 'value' its measurement:
 
-    # A tibble: 679,734 x 4
        subject activity feature                      value
          <int> <chr>    <fct>                        <dbl>
-     1       2 WALKING  Time.BodyAcceleration.mean.X 0.257
-     2       2 WALKING  Time.BodyAcceleration.mean.X 0.286
-     3       2 WALKING  Time.BodyAcceleration.mean.X 0.275
-     ...
+    1       2 WALKING  Time.BodyAcceleration.mean.X 0.257
+    2       2 WALKING  Time.BodyAcceleration.mean.X 0.286
+    3       2 WALKING  Time.BodyAcceleration.mean.X 0.275
+    ...
 
 8. Finally this data set is aggregated by calculating the mean of the measurements 
 grouped by 'subject', 'activity' and 'feature' and the resulting data frame is 
