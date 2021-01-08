@@ -10,6 +10,8 @@ while carrying a waist-mounted smartphone with embedded inertial sensors.
 The data set is then cleaned and a new data set is created containing the average of 
 every variable that is a mean or standard deviation calculation of a measurement. 
 
+The code book 'CodeBook.Rmd' describes the variables and calculations of the resulting data set.
+
 ## Usage
 
 The R script can be executed by sourcing the file:
@@ -18,7 +20,7 @@ The R script can be executed by sourcing the file:
 source('./run_analysis.R')
 ```
 
-It takes no arguments and needs any configuration.
+It takes no arguments and needs no configuration.
 
 The R script will:
 
@@ -44,14 +46,24 @@ a new data frame is created by melting the tidy data (all columns except for 'su
 The result is a data frame with 4 columns 'subject', 'activity', 'feature', 'value' with 'feature' being
 the name of the column in the tidy data set and 'value' its measurement:
 
-> # A tibble: 679,734 x 4
->   subject activity feature                      value
->     <int> <chr>    <fct>                        <dbl>
-> 1       2 WALKING  Time.BodyAcceleration.mean.X 0.257
-> 2       2 WALKING  Time.BodyAcceleration.mean.X 0.286
-> 3       2 WALKING  Time.BodyAcceleration.mean.X 0.275
-> ...
+    # A tibble: 679,734 x 4
+       subject activity feature                      value
+         <int> <chr>    <fct>                        <dbl>
+     1       2 WALKING  Time.BodyAcceleration.mean.X 0.257
+     2       2 WALKING  Time.BodyAcceleration.mean.X 0.286
+     3       2 WALKING  Time.BodyAcceleration.mean.X 0.275
+     ...
 
 8. Finally this data set is aggregated by calculating the mean of the measurements 
 grouped by 'subject', 'activity' and 'feature' and the resulting data frame is 
 written to the file 'average_data.txt'.
+
+### Output
+
+The script generates the following output (i.e. files and directories):
+
+1. File 'UCI_HAR_Dataset.zip' and directory 'UCI HAR Dataset': the downloaded data set.
+2. File 'tidy_data.txt': the tidy data set.
+3. File 'average_data.txt': the final data set with the average measurement values
+
+These files can be deleted since they will be generated every time the R script is ran.
