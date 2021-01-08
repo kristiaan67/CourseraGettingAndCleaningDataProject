@@ -47,11 +47,11 @@ The result is a data frame with 4 columns 'subject', 'activity', 'feature', 'val
 the name of the column in the tidy data set and 'value' its measurement:
 
        subject activity feature                      value
-         <int> <chr>    <fct>                        <dbl>
-    1       2 WALKING  Time.BodyAcceleration.mean.X 0.257
-    2       2 WALKING  Time.BodyAcceleration.mean.X 0.286
-    3       2 WALKING  Time.BodyAcceleration.mean.X 0.275
-    ...
+          <int> <chr>    <fct>                        <dbl>
+       2        WALKING  Time.BodyAcceleration.mean.X 0.257
+       2        WALKING  Time.BodyAcceleration.mean.X 0.286
+       2        WALKING  Time.BodyAcceleration.mean.X 0.275
+       ...
 
 8. Finally this data set is aggregated by calculating the mean of the measurements 
 grouped by 'subject', 'activity' and 'feature' and the resulting data frame is 
