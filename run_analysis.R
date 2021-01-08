@@ -4,7 +4,7 @@ library(stringr)
 
 ## 1. Download and unzip data set
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-              destfile = "UCI_HAR_Dataset.zip", method = "curl")
+              destfile = "UCI_HAR_Dataset.zip", method = "curl", quiet = TRUE)
 unzip("UCI_HAR_Dataset.zip")
 
 ## 2. Load the common master data
@@ -54,10 +54,10 @@ write.table(tidySet, file = "tidy_data.txt", row.name = FALSE, quote = FALSE)
 
 ## 6. Create a new data set with the average values of each feature
 # 6.1 melt the data by adding a column 'feature' and the feature name as value
-tidySet2 <- as_tibble(melt(as.data.table(tidySet), id.vars = c("subject", "activity"), variable.name = "feature"))
+avgValuesSet <- as_tibble(melt(as.data.table(tidySet), id.vars = c("subject", "activity"), variable.name = "feature"))
 
 # 6.2 compute the average by grouping by subject, activity and feature
-avgValuesSet <- mutate(tidySet2, subject = as.factor(subject), activity = as.factor(activity)) %>% 
+avgValuesSet <- mutate(avgValuesSet, subject = as.factor(subject), activity = as.factor(activity)) %>% 
     group_by(subject, activity, feature) %>%
     summarize(average = mean(value))
 print(avgValuesSet)
